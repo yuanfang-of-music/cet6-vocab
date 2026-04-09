@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+.stat strong {
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.card-container {
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.word-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.word-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+}
+
+.word-section {
+    text-align: center;
+    position: relative;
+}
+
+.word {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.phonetic {
+    font-size: 18px;
+    color: #666;
+    font-family: 'Times New Roman', serif;
+    margin-bottom: 10px;
+}
+
+.play-btn {
+    background: #f0f0f0;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 5px;
+}
+
+.play-btn:hover {
+    background: #e0e0e0;
+    transform: scale(1.1);
+}
+
+.play-btn:active {
+    transform: scale(0.95);
+}
+
+.meaning-section {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px dashed #ddd;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.meaning {
+    font-size: 20px;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.example {
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.hint {
+    position: absolute;
+    bottom: 15px;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.btn-icon {
+    font-size: 20px;
+}
+
+.btn-text {
+    font-size: 13px;
+}
+
+.btn-key {
+    font-size: 10px;
+    opacity: 0.6;
+    font-weight: normal;
+    margin-top: 2px;
+    background: rgba(255,255,255,0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.btn-forgot {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-forgot:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+.btn-show {
+    background: #ffd93d;
+    color: #333;
+}
+
+.btn-show:hover {
+    background: #ffcd00;
+    transform: translateY(-2px);
+}
+
+.btn-know {
+    background: #6bcb77;
+    color: white;
+}
+
+.btn-know:hover {
+    background: #5cb85c;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+}
+
+.btn-primary:hover {
+    background: #5a6fd6;
+}
+
+.mode-switch {
+    display: flex;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.mode-btn.active {
+    background: white;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.complete-msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+.complete-msg h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.complete-msg p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+    .word {
+        font-size: 28px;
+    }
+    .phonetic {
+        font-size: 16px;
+    }
+    .meaning {
+        font-size: 18px;
+    }
+    .btn {
+        padding: 12px 8px;
+    }
+    .btn-text {
+        font-size: 12px;
+    }
+}
